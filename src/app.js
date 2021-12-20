@@ -1,6 +1,6 @@
 import Main from "./components/Main/main";
 import { AddChild, New, tailwindAdd } from "./Javascript/tool";
-import SignInAndSignUp from "./components/SignIn&SignUp/LogIn";
+import SignInAndSignUp from "./components/SignIn&SignUp/SignInAndSignUp";
 
 class App {
     constructor(){
