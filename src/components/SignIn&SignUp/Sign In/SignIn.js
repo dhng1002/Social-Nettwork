@@ -16,7 +16,8 @@ class SignIn {
 
         this.thirdTitle.textContent = `Don't have an account? `
         this.link.textContent = 'Sign Up.'
-
+        this.firstTitle.textContent = 'START YOUR JOURNEY'
+        this.secondTitle.textContent = 'Sign In to Creppo'
         AddChild(this.thirdTitle, this.link)
     }
     render(){
