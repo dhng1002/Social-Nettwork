@@ -37,5 +37,5 @@ class BaseButton{
 export {
     BaseInput,
     BaseLabel,
-    BaseButton
+    BaseButton,
 }
