@@ -1,4 +1,4 @@
-import { New, SetAtt, tailwindAdd } from "../../Javascript/tool";
+import { AddChild, New, SetAtt, tailwindAdd } from "../../Javascript/tool";
 
 
 class SignInAndSignUp {
@@ -13,6 +13,7 @@ class SignInAndSignUp {
         tailwindAdd(this.childStyle, this.child)
     }
     render(){
+        AddChild(this.box, this.child)
         return this.box
     }
 }
