@@ -1,5 +1,5 @@
 import { BaseButton, BaseInput, BaseLabel } from "../../../Javascript/base"
-import { AddChild, New } from "../../../Javascript/tool"
+import { AddChild, New, tailwindAdd } from "../../../Javascript/tool"
 
 class SignIn {
     constructor(){
@@ -18,6 +18,10 @@ class SignIn {
         this.link.textContent = 'Sign Up.'
         this.firstTitle.textContent = 'START YOUR JOURNEY'
         this.secondTitle.textContent = 'Sign In to Creppo'
+
+        this.boxStyle = ['basis-2/4', 'grow-0', 'shrink-0']
+
+        tailwindAdd(this.boxStyle, this.box)
         AddChild(this.thirdTitle, this.link)
     }
     render(){
