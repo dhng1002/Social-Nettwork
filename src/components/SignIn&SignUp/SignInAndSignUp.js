@@ -11,7 +11,7 @@ class SignInAndSignUp {
         this.signUp = new SignUp()
         this.signIn = new SignIn()
         this.boxStyle = ['w-4/5', 'h-96', 'border', 'border-black', 'relative', 'inset-1/2', '-translate-y-1/2', '-translate-x-1/2'] 
-        this.childStyle = ['mx-4', 'my-2', 'flex', 'flex-row']
+        this.childStyle = ['mx-4', 'my-2']
 
         tailwindAdd(this.boxStyle, this.box)
         tailwindAdd(this.childStyle, this.child)
