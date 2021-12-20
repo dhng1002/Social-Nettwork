@@ -1,18 +1,30 @@
 import { AddChild, New, SetAtt, tailwindAdd } from "../../Javascript/tool";
+<<<<<<< HEAD
 import SignUp from "./Sign UP/SignUp";
+=======
+import SignIn from "./Sign In/SignIn";
+>>>>>>> 4bebb5aff0d8bca33b1c9805c0421a1b6d889197
 
 
 class SignInAndSignUp {
     constructor(){
         this.box = New('div')
         this.child = New('div')
+<<<<<<< HEAD
         this.signUp = new SignUp()
+=======
+        this.signIn = new SignIn()
+>>>>>>> 4bebb5aff0d8bca33b1c9805c0421a1b6d889197
         this.boxStyle = ['w-4/5', 'h-96', 'border', 'border-black', 'relative', 'inset-1/2', '-translate-y-1/2', '-translate-x-1/2'] 
-        this.childStyle = ['px-4', 'py-2']
+        this.childStyle = ['mx-4', 'my-2']
 
         tailwindAdd(this.boxStyle, this.box)
         tailwindAdd(this.childStyle, this.child)
+<<<<<<< HEAD
         AddChild(this.child, this.signUp.render())
+=======
+        AddChild(this.child,this.signIn.render())
+>>>>>>> 4bebb5aff0d8bca33b1c9805c0421a1b6d889197
     }
     render(){
         AddChild(this.box, this.child)
