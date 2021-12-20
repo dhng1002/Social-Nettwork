@@ -30,7 +30,7 @@ class BaseButton{
         this.button.textContent = text
     }
     render(){
-        this.button
+        return this.button
     }
 }
 
