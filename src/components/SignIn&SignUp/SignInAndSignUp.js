@@ -9,7 +9,7 @@ class SignInAndSignUp {
         this.child = New('div')
         this.signUp = new SignUp()
         this.signIn = new SignIn()
-        this.boxStyle = ['w-4/5', 'border', 'border-black', 'relative', 'inset-1/2', '-translate-y-1/2', '-translate-x-1/2'] 
+        this.boxStyle = ['w-4/5', 'relative', 'inset-1/2', '-translate-y-1/2', '-translate-x-1/2','z-10','bg-white','rounded-3xl'] 
         this.childStyle = ['mx-4', 'my-2', 'flex', 'flex-row']
        
         

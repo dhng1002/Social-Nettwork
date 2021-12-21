@@ -1,7 +1,7 @@
 import Main from "./components/Main/main";
 import { AddChild, New, tailwindAdd } from "./Javascript/tool";
 import SignInAndSignUp from "./components/SignIn&SignUp/SignInAndSignUp";
-
+import Background from "./asset/image/background-SignIn&SignUp.jpg"
 class App {
     constructor(){
         this.box = New('div')
@@ -9,7 +9,8 @@ class App {
         this.signIn_SignUp_box = new SignInAndSignUp()
         this.mainApp = new Main()
         this.boxStyle = ['w-full', 'h-screen']
-        this.backgroundStyle = ['fixed', 'bg-slate-900', 'w-36', 'h-36' , 'top-0', 'left-0']
+        this.backgroundStyle = ['fixed', 'w-screen', 'h-screen' , 'top-0', 'left-0']
+        this.background.style.background = `url(${Background})`
         tailwindAdd(this.boxStyle, this.box)
         tailwindAdd(this.backgroundStyle,this.background)
     }
