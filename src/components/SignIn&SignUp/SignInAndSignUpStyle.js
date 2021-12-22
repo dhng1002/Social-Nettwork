@@ -1,9 +1,12 @@
-const boxStyle = ['basis-2/4', 'grow-0', 'shrink-0', 'text-indigo-800', 'mt-12']
-const firstTitleStyle = ['font-semibold', 'text-xs']
-const secondTitleStyle = ['font-bold', 'text-3xl', 'my-4']
-const thirdTitleStyle = ['text-slate-500', 'text-xs', 'mb-8']
-const linkStyle = ['text-sky-600']
-const labelStyle = ['text-stone-500', 'block', 'mb-2']
-const inputStyle = ['block', 'border', 'rounded', 'border-slate-700', 'w-60', 'h-8']
-const btnStyle = ['w-60','h-10','border','rounded-lg', 'text-white', 'bg-indigo-700', 'my-10', 'text-xs']
-export {boxStyle , firstTitleStyle, secondTitleStyle , thirdTitleStyle, linkStyle, labelStyle, inputStyle, btnStyle}
+const boxStyle = ['basis-6/12', 'text-indigo-800', 'mt-10', 'relative']
+const childStyle = ['absolute', 'w-10/12']
+const firstTitleStyle = ['font-semibold', 'text-2xl','w-96','mx-auto','cursor-default']
+const secondTitleStyle = ['font-bold', 'text-4xl', 'my-4','w-96','mx-auto','cursor-default']
+const thirdTitleStyle = ['text-slate-500', 'text-lg', 'mb-8','w-96','mx-auto', 'cursor-default']
+const linkStyle = ['text-sky-600', 'cursor-pointer']
+const labelStyle = ['text-stone-500', 'block', 'mb-2','text-lg','font-semibold','w-96','mx-auto']
+const inputStyle = ['block', 'border', 'rounded', 'border-slate-700', 'w-96', 'h-11', 'mx-auto']
+const btnStyle = ['w-96','h-12','border','rounded-lg', 'text-white', 'bg-indigo-700', 'mt-10','mb-10', 'text-xs', 'mx-auto', 'block']
+const inputAlertStyle = ['h-4','w-full','mb-2','text-center']
+
+export {boxStyle , firstTitleStyle, secondTitleStyle , thirdTitleStyle, linkStyle, labelStyle, inputStyle, btnStyle,inputAlertStyle, childStyle}
