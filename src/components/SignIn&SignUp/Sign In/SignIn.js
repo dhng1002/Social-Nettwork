@@ -50,6 +50,14 @@ class SignIn {
         this.btn.tailWindAdd(this.btnStyle)
         AddChild(this.thirdTitle, this.link)
         Event('click', this.link, this.handleLink.bind(this) )
+        Event('resize', window, this.handleResize.bind(this))
+    }
+    handleResize(e) {
+        if(window.innerWidth < 920){
+            brigde.currentValue.BackgroundBox.style.display = 'none'
+        }else{
+            brigde.currentValue.BackgroundBox.style.display = 'block'
+        }
     }
     handleLink(e){
         let startImage = 0

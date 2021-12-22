@@ -9,8 +9,8 @@ class SignInAndSignUp {
         this.background = new Background()
         this.signUp = new SignUp()
         this.signIn = new SignIn()
-        this.boxStyle = ['w-4/5', 'relative', 'inset-1/2', '-translate-y-1/2', '-translate-x-1/2','z-10','bg-white','rounded-3xl', 'overflow-hidden'] 
-        this.childStyle = [ 'my-2', 'flex', 'flex-row','justify-between', 'h-[44rem]']
+        this.boxStyle = ['lg:w-960', 'relative', 'inset-1/2', '-translate-y-1/2', '-translate-x-1/2','z-10','bg-white','rounded-3xl', 'overflow-hidden'] 
+        this.childStyle = [ 'my-2', 'flex', 'flex-row','justify-between', 'h-576']
        
         
        
