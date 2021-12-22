@@ -1,6 +1,9 @@
 class Brigde {
-    current(){
-
+    constructor(){
+        this.currentValue = null
+    }
+    current(any){
+        this.currentValue = any
     }
     run(){
 
