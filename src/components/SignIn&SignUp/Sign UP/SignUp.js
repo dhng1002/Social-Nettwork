@@ -4,7 +4,7 @@ import {boxStyle , firstTitleStyle, secondTitleStyle , thirdTitleStyle, linkStyl
 import {brigde} from "../Background/BackgroundBox"
 
 class SignUp {
-     constructor(){
+     constructor(callback){
           this.box = New('div')
           this.child = New('div');
           this.fistline = New('h1');
@@ -29,6 +29,7 @@ class SignUp {
           this.passwordInput = new BaseInput("text","password-signUp","password-signUp");     
           this.passwordAlert = New('p');
           this.btnSignUp = new BaseButton("SIGN UP");
+          this.isClick = true
 
           this.boxStyle = boxStyle;
           this.childStyle = childStyle;
@@ -41,6 +42,7 @@ class SignUp {
           this.btnStyle = btnStyle;
           this.inputAlertStyle = inputAlertStyle;
         
+          this.callback = callback
           tailwindAdd(this.boxStyle, this.box)
           tailwindAdd(this.childStyle, this.child);
           tailwindAdd(this.firstLineStyle, this.fistline);
@@ -71,6 +73,7 @@ class SignUp {
       handleLink(e){
         let startImage = 42
         let startPosition = 65
+        this.callback(this.isClick)
         let run = function (){
             startImage -= 1
             startPosition -= 1.5

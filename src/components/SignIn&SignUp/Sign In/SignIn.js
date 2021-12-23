@@ -4,7 +4,7 @@ import { boxStyle, btnStyle, firstTitleStyle, inputStyle, labelStyle, linkStyle,
 import {brigde} from "../Background/BackgroundBox"
 
 class SignIn {
-    constructor(){
+    constructor(callback){
         this.box = New('div')
         this.child = New('div')
         this.firstTitle = New('p')
@@ -18,12 +18,14 @@ class SignIn {
         this.btn = new BaseButton('SIGN IN')
         this.emailAlert = New('p')
         this.passwordAlert = New('p')
+        this.isClick = false
 
         this.thirdTitle.textContent = `Don't have an account? `
         this.link.textContent = 'Sign Up.'
         this.firstTitle.textContent = 'START YOUR JOURNEY'
         this.secondTitle.textContent = 'Sign In to Creppo'
 
+        this.callback = callback
         this.childStyle = childStyle
         this.boxStyle = boxStyle
         this.firstTitleStyle = firstTitleStyle
@@ -50,18 +52,11 @@ class SignIn {
         this.btn.tailWindAdd(this.btnStyle)
         AddChild(this.thirdTitle, this.link)
         Event('click', this.link, this.handleLink.bind(this) )
-        Event('resize', window, this.handleResize.bind(this))
-    }
-    handleResize(e) {
-        if(window.innerWidth < 920){
-            brigde.currentValue.BackgroundBox.style.display = 'none'
-        }else{
-            brigde.currentValue.BackgroundBox.style.display = 'block'
-        }
     }
     handleLink(e){
         let startImage = 0
         let startPosition = 0
+        this.callback(this.isClick)
         let run = function (){
             startImage += 1
             startPosition += 1.5

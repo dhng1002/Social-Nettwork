@@ -8,7 +8,7 @@ class App {
         this.background = New('div')
         this.signIn_SignUp_box = new SignInAndSignUp()
         this.mainApp = new Main()
-        this.boxStyle = ['w-full', 'h-screen']
+        this.boxStyle = ['w-full', 'h-screen', 'text-base']
         this.backgroundStyle = ['fixed', 'w-full', 'h-full' , 'top-0', 'left-0','bg-cover']
         this.background.style.background = `url(${Background})`
         tailwindAdd(this.boxStyle, this.box)
