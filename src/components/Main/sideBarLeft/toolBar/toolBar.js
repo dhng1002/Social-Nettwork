@@ -13,7 +13,7 @@ class ToolBar {
         this.photos = new Photos()
         this.groups = new Groups()
         this.saved = new Save()
-        this.boxStyle = ['flex', 'flex-col', 'w-full', 'mt-6', 'shadow-[0_0_20px_rgba(230,230,230,0.5)]', 'rounded-lg']
+        this.boxStyle = ['flex', 'flex-col', 'w-full', 'mt-6', 'shadow-[0_0_20px_rgba(230,230,230,0.5)]', 'rounded-lg', 'bg-white']
 
         tailwindAdd(this.boxStyle, this.box)
     }

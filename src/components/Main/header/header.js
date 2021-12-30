@@ -2,6 +2,7 @@ import { AddChild, New, SetAtt, tailwindAdd } from "../../../Javascript/tool";
 import Logo from '../../../asset/image/Logo.png'
 import SearchBar from "./SearchBar/searchBar";
 import NullAvatar from "../../../asset/image/Null Avatar.jpg"
+import { onAuthStateChanged } from "firebase/auth";
 
 class Header {
     constructor(){
@@ -10,7 +11,6 @@ class Header {
         this.childBox = New('div')
         this.settingButton = New('img')
         this.searchBar = new SearchBar()
-
         SetAtt(this.settingButton, 'src', NullAvatar)
         SetAtt(this.image, 'src', Logo)
         AddChild(this.childBox, this.searchBar.render())
@@ -25,6 +25,8 @@ class Header {
         tailwindAdd(this.imageStyle, this.image)
         tailwindAdd(this.settingButtonStyle, this.settingButton)
         tailwindAdd(this.childBoxStyle, this.childBox)
+
+
     }
     render(){
         AddChild(this.box, this.image)
