@@ -16,9 +16,9 @@ class Header {
         AddChild(this.childBox, this.searchBar.render())
         AddChild(this.childBox, this.settingButton)
 
-        this.boxStyle = ['w-full', 'h-20', 'border', 'border-b-gray-200', 'flex', 'flex-row', 'items-center', 'justify-between', 'fixed', 'bg-white']
-        this.imageStyle = ['h-14', 'ml-4']
-        this.settingButtonStyle = ['w-12', 'h-12', 'border-2', 'border-indigo-500/100', 'rounded', 'mx-4']
+        this.boxStyle = ['w-full', 'h-16', 'border', 'border-b-gray-200', 'flex', 'flex-row', 'items-center', 'justify-between', 'fixed', 'bg-white']
+        this.imageStyle = ['h-10', 'ml-16']
+        this.settingButtonStyle = ['w-10', 'h-10', 'border-2', 'border-indigo-500/100', 'rounded', 'mx-6']
         this.childBoxStyle = ['flex', 'flex-row', 'items-center']
 
         tailwindAdd(this.boxStyle, this.box)

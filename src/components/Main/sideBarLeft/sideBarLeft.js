@@ -8,7 +8,7 @@ class SideBarLeft {
         this.content = New('div')
         this.avatar = new Avatar()
         this.toolBar = new ToolBar()
-        this.boxStyle = ['grow-0','shrink-0', 'basis-72','inline-block', 'mt-24']
+        this.boxStyle = ['grow-0','shrink-0', 'basis-72','inline-block', 'mt-20']
         this.contentStyle = ['w-72', 'fixed', 'px-4', Style.spacingSideBar , 'overflow-y-auto', 'z-10', Style.scrollSideBar]
 
         tailwindAdd(this.boxStyle, this.box)

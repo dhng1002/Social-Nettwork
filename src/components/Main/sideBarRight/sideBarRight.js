@@ -5,7 +5,7 @@ class SideBarRight {
         this.box = New('div')
         this.content = New('div')
 
-        this.boxStyle = ['grow-0','shrink-0', 'basis-72', 'inline-block', 'mt-24']
+        this.boxStyle = ['grow-0','shrink-0', 'basis-72', 'inline-block', 'mt-20']
         this.contentStyle = ['w-72', 'pr-4', 'fixed', 'right-0' ,'z-10']
 
         tailwindAdd(this.boxStyle, this.box)
