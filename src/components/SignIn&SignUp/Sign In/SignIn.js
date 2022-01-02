@@ -1,10 +1,13 @@
 import { BaseButton, BaseInput, BaseLabel } from "../../../Javascript/base"
-import { AddChild, New, tailwindAdd, Event } from "../../../Javascript/tool"
+import { AddChild, New, tailwindAdd, Event, tailwindRemove, Element } from "../../../Javascript/tool"
 import { boxStyle, btnStyle, firstTitleStyle, inputStyle, labelStyle, linkStyle, secondTitleStyle, thirdTitleStyle, childStyle , inputAlertStyle} from "../SignInAndSignUpStyle"
 import {brigde} from "../Background/BackgroundBox"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import currentApp from "../../..";
+import App from "../../../app";
 
 class SignIn {
-    constructor(callback){
+    constructor(callback, notification){
         this.box = New('div')
         this.child = New('div')
         this.firstTitle = New('p')
@@ -14,11 +17,12 @@ class SignIn {
         this.emailLabel = new BaseLabel('email', 'E-Mail')
         this.passWordLabel = new BaseLabel('password', 'Password')
         this.emailInput = new BaseInput('text', 'email', 'email')
-        this.passWordInput = new BaseInput('text', 'password', 'password')
+        this.passWordInput = new BaseInput('password', 'password', 'password')
         this.btn = new BaseButton('SIGN IN')
         this.emailAlert = New('p')
         this.passwordAlert = New('p')
         this.isClick = false
+        this.notification = notification
 
         this.thirdTitle.textContent = `Don't have an account? `
         this.link.textContent = 'Sign Up.'
@@ -51,7 +55,11 @@ class SignIn {
         this.passWordInput.tailWindAdd(this.inputStyle)
         this.btn.tailWindAdd(this.btnStyle)
         AddChild(this.thirdTitle, this.link)
-        Event('click', this.link, this.handleLink.bind(this) )
+        Event('click', this.link, this.handleLink.bind(this))
+        this.emailInput.Event('focus', this.handleFocus.bind(this))
+        this.passWordInput.Event('focus', this.handleFocus.bind(this))
+        this.btn.Event('click', this.signInHandle.bind(this))
+
     }
     handleLink(e){
         let startImage = 0
@@ -70,6 +78,34 @@ class SignIn {
             }
         }
         run()
+    }
+    signInHandle(){
+        signInWithEmailAndPassword(getAuth(), this.emailInput.input.value.trim(), this.passWordInput.input.value.trim())
+        .then((userCredential) => {
+            const user = userCredential.user;
+            if(user.emailVerified === false){
+                this.notification.title.textContent = `Hi ${user.displayName}! Please verify your account to log in `
+                tailwindRemove(['hidden'], this.notification.box)
+            }else{
+                Element('#root').innerHTML = ''
+                AddChild( Element('#root'), new App().render("Main"))
+                localStorage.setItem('uid', user.uid)
+            }
+        })
+        .catch((error) => {
+        const errorCode = error.code;
+            console.log(errorCode)
+            if(errorCode === 'auth/internal-error' || errorCode === 'auth/wrong-password'){
+                this.passwordAlert.textContent = 'Your password is wrong'
+            }else if(errorCode === 'auth/invalid-email' ||  errorCode === 'auth/user-not-found' ){
+                this.emailAlert.textContent = 'The account you entered does not exist'
+            }
+        });
+    }
+    handleFocus(e){
+        this.emailAlert.textContent=''
+        this.passwordAlert.textContent=''
+        e.target.value = ''
     }
     render(){
         AddChild(this.child, this.firstTitle)

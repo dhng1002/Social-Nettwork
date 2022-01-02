@@ -1,15 +1,17 @@
-import { AddChild, New, SetAtt, tailwindAdd, Event, tailwindRemove } from "../../Javascript/tool";
+import { AddChild, New, SetAtt, tailwindAdd, Event, tailwindRemove, Element, Elements } from "../../Javascript/tool";
 import SignUp from "./Sign UP/SignUp";
 import SignIn from "./Sign In/SignIn";
 import Background from "./Background/BackgroundBox"
+import Notification from "./Sign UP/Notification/notification";
 
 class SignInAndSignUp {
     constructor(){
         this.box = New('div')
         this.child = New('div')
         this.background = new Background()
-        this.signUp = new SignUp(this.checkSignUpClick.bind(this))
-        this.signIn = new SignIn(this.checkSignInClick.bind(this))
+        this.notification = new Notification()
+        this.signUp = new SignUp(this.checkSignUpClick.bind(this), this.notification)
+        this.signIn = new SignIn(this.checkSignInClick.bind(this), this.notification)
         this.boxStyle = ['lg:w-960', 'md:w-800', 'relative', 'inset-1/2', '-translate-y-1/2', '-translate-x-1/2','z-10','bg-white','rounded-3xl', 'overflow-hidden'] 
         this.childStyle = [ 'my-2', 'flex', 'flex-row','justify-between', 'lg:h-576', 'md:h-450']
         tailwindAdd(this.boxStyle, this.box)
@@ -74,10 +76,9 @@ class SignInAndSignUp {
         }
     }
     render(){
-        AddChild(this.box, this.child)
-        
-        
-        return this.box
+                AddChild(this.box, this.child)
+                AddChild(this.box, this.notification.render())
+                return this.box 
     }
 }
 

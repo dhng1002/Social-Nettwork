@@ -10,6 +10,7 @@ import {getAuth} from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBs-9pnI8wFGTfQ2BXatG873OZejBPzdrw",
   authDomain: "social-network-1f011.firebaseapp.com",
+  databaseURL: "https://social-network-1f011-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "social-network-1f011",
   storageBucket: "social-network-1f011.appspot.com",
   messagingSenderId: "805489605509",
