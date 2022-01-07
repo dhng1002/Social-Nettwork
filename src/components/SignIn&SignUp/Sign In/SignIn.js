@@ -84,6 +84,7 @@ class SignIn {
         .then((userCredential) => {
             const user = userCredential.user;
             if(user.emailVerified === false){
+                console.log(user)
                 this.notification.title.textContent = `Hi ${user.displayName}! Please verify your account to log in `
                 tailwindRemove(['hidden'], this.notification.box)
             }else{
