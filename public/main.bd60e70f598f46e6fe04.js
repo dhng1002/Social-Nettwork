@@ -7417,7 +7417,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/be9e933843b81e568e45.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/BWAvatar.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/BWAvatar.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/BWAvatar.jpg?");
 
 /***/ }),
 
@@ -7428,7 +7428,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/be9e933843b81e568e4
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/e9557956be61fbdf60a1.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Background.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/Background.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Background.jpg?");
 
 /***/ }),
 
@@ -7439,7 +7439,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/e9557956be61fbdf60a
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/51eeda56e89df44a3b4b.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Camera.png?");
+eval("module.exports = __webpack_require__.p + \"asset/image/Camera.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Camera.png?");
 
 /***/ }),
 
@@ -7450,7 +7450,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/51eeda56e89df44a3b4
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/8f27a1b72b64e524a7d7.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/IronManAvatar.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/IronManAvatar.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/IronManAvatar.jpg?");
 
 /***/ }),
 
@@ -7461,7 +7461,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/8f27a1b72b64e524a7d
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/3c3faae2fc85fea20481.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Logo.png?");
+eval("module.exports = __webpack_require__.p + \"asset/image/Logo.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Logo.png?");
 
 /***/ }),
 
@@ -7472,7 +7472,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/3c3faae2fc85fea2048
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/f4eb2a3e60816c38ad88.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Null_Avatar.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/Null Avatar.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/Null_Avatar.jpg?");
 
 /***/ }),
 
@@ -7483,7 +7483,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/f4eb2a3e60816c38ad8
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/081f2191f6357e0c9890.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/SpiderManAvatar.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/SpiderManAvatar.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/SpiderManAvatar.jpg?");
 
 /***/ }),
 
@@ -7494,7 +7494,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/081f2191f6357e0c989
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/e0aadf8e39fb39f8fd3b.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/ThorAvatar.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/ThorAvatar.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/ThorAvatar.jpg?");
 
 /***/ }),
 
@@ -7505,7 +7505,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/e0aadf8e39fb39f8fd3
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/b165c94ae2202c4176d5.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/WandaAvatar.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/WandaAvatar.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/WandaAvatar.jpg?");
 
 /***/ }),
 
@@ -7516,7 +7516,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/b165c94ae2202c4176d
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/f48e52371b217de9fcd6.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/account.png?");
+eval("module.exports = __webpack_require__.p + \"asset/image/account.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/account.png?");
 
 /***/ }),
 
@@ -7527,7 +7527,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/f48e52371b217de9fcd
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/a4f2b42e2fa9d2ac5fb2.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/background-SignIn&SignUp.jpg?");
+eval("module.exports = __webpack_require__.p + \"asset/image/background-SignIn&SignUp.jpg\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/background-SignIn&SignUp.jpg?");
 
 /***/ }),
 
@@ -7538,7 +7538,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/a4f2b42e2fa9d2ac5fb
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/0824802ac589544761df.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/friends.png?");
+eval("module.exports = __webpack_require__.p + \"asset/image/friends.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/friends.png?");
 
 /***/ }),
 
@@ -7549,7 +7549,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/0824802ac589544761d
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/ca11a49480da65c06bf7.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/group.png?");
+eval("module.exports = __webpack_require__.p + \"asset/image/group.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/group.png?");
 
 /***/ }),
 
@@ -7560,7 +7560,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/ca11a49480da65c06bf
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/a3be9080cd6d03ca33c6.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/photo.png?");
+eval("module.exports = __webpack_require__.p + \"asset/image/photo.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/photo.png?");
 
 /***/ }),
 
@@ -7571,7 +7571,7 @@ eval("module.exports = __webpack_require__.p + \"asset/image/a3be9080cd6d03ca33c
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"asset/image/a83b63d1f2859019e355.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/save.png?");
+eval("module.exports = __webpack_require__.p + \"asset/image/save.png\";\n\n//# sourceURL=webpack://socail-network/./src/asset/image/save.png?");
 
 /***/ }),
 
