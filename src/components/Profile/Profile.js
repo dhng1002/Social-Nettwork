@@ -71,115 +71,114 @@ class Profile {
         }
         onAuthStateChanged(this.auth, user => {
             if(user){
-                onValue(ref(db, 'Request/'+ user.uid),snapshot =>{
+                onValue(ref(db, 'Request/'),snapshot =>{
                     let addFriendBtn = new BaseButton('Add friend')
+                    let cancelRequest = new BaseButton('Cancel Request')
                     let acceptBtn = new BaseButton('Accept')
                     let declineBtn = new BaseButton('Decline')
-                    let cancelRequest = new BaseButton('Cancel request')
+                    addFriendBtn.tailWindAdd(this.addFriendBtnStyle)
+                    cancelRequest.tailWindAdd(this.cancelRequestStyle)
+                    acceptBtn.tailWindAdd(this.acceptBtnStyle)
+                    declineBtn.tailWindAdd(this.declineBtnStyle)
                     let data = snapshot.val()
-                    if(data){
-                        onValue(ref(db, 'Request/' + value), snapshot=>{
-                            console.log(1)
-                            if(snapshot.val()){
-                                clearChild(this.navBar)
-                                if(data.some(u => u === value)){
-                                    data[data.indexOf(value)] = null
-                                    AddChild(this.navBar, cancelRequest.render())
-                                    cancelRequest.Event('click', () =>{
-                                        update(ref(db, 'Request/'),{
-                                            [user.uid]: data
-                                        })
-                                    })
-                                }else{
-                                    if(snapshot.val().some(u => u === user.uid)){
-                                        clearChild(this.navBar)
-                                        AddChild(this.navBar, acceptBtn.render())
-                                        AddChild(this.navBar, declineBtn.render())
-                                        acceptBtn.Event('click', () => {
-                                        let data = snapshot.val()
-                                        data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/'),{
-                                            [value]: data
-                                        })
-                                        })
-                                        declineBtn.Event('click', () => {
-                                        let data = snapshot.val()
-                                        data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/'),{
-                                            [value]: data
-                                        })
-                                    })
-                                    }else{
-                                    let data = snapshot.val()
-                                    data = data.concat(value)
-                                    AddChild(this.navBar, addFriendBtn.render())
-                                    addFriendBtn.Event('click', ()=>{
-                                        update(ref(db, 'Request/'),{
-                                            [user.uid]: data
-                                        })
-                                    })}
-                                }
-                            }else{
-                                clearChild(this.navBar)
-                                if(data.some(u => u === value)){
-                                    data[data.indexOf(value)] = null
-                                    AddChild(this.navBar, cancelRequest.render())
-                                    cancelRequest.Event('click', () =>{
-                                        update(ref(db, 'Request/'),{
-                                            [user.uid]: data
-                                        })
-                                    })
-                                }else{
-                                    data = data.concat(value)
-                                    AddChild(this.navBar, addFriendBtn.render())
-                                    addFriendBtn.Event('click', ()=>{
-                                        update(ref(db, 'Request/'),{
-                                            [user.uid]: data
-                                        })
-                                    })
-                                }
-                            }
-                        })
-                        
-                    }else{
-                        onValue(ref(db, 'Request/' + value), snapshot=>{
-                            clearChild(this.navBar)
-                            if(snapshot.val()){
-                                if(snapshot.val().some(u => u === user.uid)){
-                                    AddChild(this.navBar, acceptBtn.render())
-                                    AddChild(this.navBar, declineBtn.render())
-                                    acceptBtn.Event('click', () => {
-                                        let data = snapshot.val()
-                                        data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/'),{
-                                            [value]: data
-                                        })
-                                    })
-                                    declineBtn.Event('click', () => {
-                                        let data = snapshot.val()
-                                        data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/'),{
-                                            [value]: data
-                                        })
-                                    })
-                                }else{
-                                    AddChild(this.navBar, addFriendBtn.render())
-                                    addFriendBtn.Event('click', () =>{
+                    let currentUser, anotherUser
+                    if(snapshot.val()){
+                        currentUser = data[user.uid]
+                        anotherUser = data[value]
+                        clearChild(this.navBar)
+                        if(currentUser && !anotherUser){
+                            if(currentUser.some(u => u === value)){
+                                AddChild(this.navBar, cancelRequest.render())
+                                cancelRequest.Event('click', () => {
+                                    currentUser.indexOf(value) !== -1 ? currentUser.splice(currentUser.indexOf(value), 1) : null
                                     update(ref(db, 'Request/'),{
-                                        [user.uid]: [value]
+                                        [user.uid]: currentUser
                                     })
                                 })
-                                }
                             }else{
                                 AddChild(this.navBar, addFriendBtn.render())
-                                addFriendBtn.Event('click', () =>{
+                                addFriendBtn.Event('click', () => {
+                                currentUser = currentUser.concat(value)
                                 update(ref(db, 'Request/'),{
-                                        [user.uid]: [value]
+                                    [user.uid]: currentUser
                                 })
+                            })
+                            }
+                        }else if(!currentUser && anotherUser){
+                            if(anotherUser.some(u => u === user.uid)){
+                                AddChild(this.navBar, acceptBtn.render())
+                                AddChild(this.navBar, declineBtn.render())
+                                anotherUser.indexOf(user.uid) !== -1 ? anotherUser.splice(anotherUser.indexOf(user.uid),1): null
+                                acceptBtn.Event('click', ()=>{
+                                    update(ref(db, 'Request/'),{
+                                        [value]: anotherUser
+                                    })
+                                })
+                                declineBtn.Event('click', ()=>{
+                                    update(ref(db, 'Request/'),{
+                                        [value]: anotherUser
+                                    })
+                                })
+                            }else{
+                                AddChild(this.navBar, addFriendBtn.render())
+                                addFriendBtn.Event('click', ()=>{
+                                    currentUser === undefined ? currentUser = [value] : currentUser = currentUser.concat(value)
+                                    update(ref(db, 'Request/'),{
+                                        [user.uid]: currentUser
+                                    })
                                 })
                             }
+                        }else if (!anotherUser && !currentUser){
+                            AddChild(this.navBar, addFriendBtn.render())
+                            addFriendBtn.Event('click', () =>{
+                                update(ref(db, `Request/`),{
+                                    [user.uid]: [value]
+                                })
+                            })
+                        }else if (anotherUser && currentUser){
+                            if(currentUser.some(u => u === value) === false && anotherUser.some(u => u === user.uid) === true){
+                                AddChild(this.navBar, acceptBtn.render())
+                                AddChild(this.navBar, declineBtn.render())
+                                anotherUser.indexOf(user.uid) !== -1 ? anotherUser.splice(anotherUser.indexOf(user.uid),1):null
+                                acceptBtn.Event('click', ()=>{
+                                    update(ref(db, 'Request/'),{
+                                        [value]: anotherUser
+                                    })
+                                })
+                            }else if(currentUser.some(u => u === value) === true && anotherUser.some(u => u === value) === false){
+                                AddChild(this.navBar, cancelRequest.render())
+                                currentUser.indexOf(value) !== -1 ? currentUser.splice(currentUser.indexOf(value),1):null 
+                                cancelRequest.Event('click', ()=>{
+                                    update(ref(db, 'Request/'),{
+                                        [user.uid]: currentUser
+                                    })
+                                })
+                            }else if(currentUser.some(u => u === value) === false && anotherUser.some(u => u === value) === false){
+                                AddChild(this.navBar, addFriendBtn.render())
+                                addFriendBtn.Event('click', ()=>{
+                                    currentUser === undefined ? currentUser = [value] : currentUser = currentUser.concat(value)
+                                    update(ref(db, 'Request/'),{
+                                        [user.uid]: currentUser
+                                    })
+                                })
+                            }
+                        }
+                    }else{
+                        clearChild(this.navBar)
+                        if(!currentUser && !anotherUser){
+                            AddChild(this.navBar, addFriendBtn.render())
+                            addFriendBtn.Event('click', () =>{
+                                update(ref(db, `Request/`),{
+                                    [user.uid]: [value]
+                                })
+                            })
+                        }
+                    }
+                    if(value === user.uid){
+                        clearChild(this.navBar)
+                        Event('click', this.avatar, ()=>{
+                            set(ref(db, 'New User/' + user.uid),{haveSignIn: false})
                         })
-                        
                     }
                 })
                 
