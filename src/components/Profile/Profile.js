@@ -79,6 +79,7 @@ class Profile {
                     if(data){
                         clearChild(this.navBar)
                         onValue(ref(db, 'Request/' + value), snapshot=>{
+                           console.log(data)
                             if(snapshot.val()){
                                 if(snapshot.val().some(u => u === user.uid)){
                                     AddChild(this.navBar, acceptBtn.render())
@@ -86,14 +87,14 @@ class Profile {
                                     acceptBtn.Event('click', () => {
                                         let data = snapshot.val()
                                         data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/' + value),{
+                                        set(ref(db, 'Request/' + value),{
                                             [value]: data
                                         })
                                     })
                                     declineBtn.Event('click', () => {
                                         let data = snapshot.val()
                                         data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/' + value),{
+                                        set(ref(db, 'Request/' + value),{
                                             [value]: data
                                         })
                                     })
@@ -101,17 +102,18 @@ class Profile {
                                     data = data.concat(value)
                                     AddChild(this.navBar, addFriendBtn.render())
                                     addFriendBtn.Event('click', ()=>{
-                                        update(ref(db, 'Request/' + user.uid),{
+                                        set(ref(db, 'Request/' + user.uid),{
                                             [user.uid]: data
                                         })
                                     })
                                 }
                             }else{
+                                console.log(data)
                                 if(data.some(u => u === value)){
                                     data[data.indexOf(value)] = null
                                     AddChild(this.navBar, cancelRequest.render())
                                     cancelRequest.Event('click', () =>{
-                                        update(ref(db, 'Request/'),{
+                                        set(ref(db, 'Request/'),{
                                             [user.uid]: data
                                         })
                                     })
@@ -119,7 +121,7 @@ class Profile {
                                     data = data.concat(value)
                                     AddChild(this.navBar, addFriendBtn.render())
                                     addFriendBtn.Event('click', ()=>{
-                                        update(ref(db, 'Request/' + user.uid),{
+                                        set(ref(db, 'Request/' + user.uid),{
                                             [user.uid]: data
                                         })
                                     })
@@ -137,21 +139,21 @@ class Profile {
                                     acceptBtn.Event('click', () => {
                                         let data = snapshot.val()
                                         data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/' + value),{
+                                        set(ref(db, 'Request/' + value),{
                                             [value]: data
                                         })
                                     })
                                     declineBtn.Event('click', () => {
                                         let data = snapshot.val()
                                         data[data.indexOf(user.uid)] = null
-                                        update(ref(db, 'Request/' + value),{
+                                        set(ref(db, 'Request/' + value),{
                                             [value]: data
                                         })
                                     })
                                 }else{
                                     AddChild(this.navBar, addFriendBtn.render())
                                     addFriendBtn.Event('click', () =>{
-                                    update(ref(db, 'Request/'),{
+                                    set(ref(db, 'Request/'),{
                                         [user.uid]: [value]
                                     })
                                 })
@@ -159,7 +161,7 @@ class Profile {
                             }else{
                                 AddChild(this.navBar, addFriendBtn.render())
                                 addFriendBtn.Event('click', () =>{
-                                update(ref(db, 'Request/'),{
+                                set(ref(db, 'Request/'),{
                                         [user.uid]: [value]
                                 })
                                 })
