@@ -43,6 +43,8 @@ class SearchBar {
     handleBlur(e){
         if(this.mouseIn === false){
             tailwindAdd(['hidden'], this.listInformation)
+            tailwindAdd(['rounded-lg'], this.SearchBar.input)
+            tailwindRemove(['rounded-t-lg'], this.SearchBar.input)
             e.target.value = ''
         }
     }
@@ -105,14 +107,18 @@ class SearchBar {
                 })
                 Event('mouseenter', this.listInformation.children[index], (e)=>{
                     tailwindRemove(['bg-white'], e.target)
-                    tailwindAdd(['bg-slate-200'], e.target)
+                    tailwindAdd(['bg-slate-200', 'rounded-b-lg'], e.target)
                 })
                 Event('mouseleave', this.listInformation.children[index], (e)=>{
                     tailwindAdd(['bg-white'], e.target)
-                    tailwindRemove(['bg-slate-200'], e.target)
+                    tailwindRemove(['bg-slate-200', 'rounded-b-lg'], e.target)
                 })
                 
             }
+        }else{
+            tailwindAdd(['hidden'], this.listInformation)
+            tailwindAdd(['rounded-lg'], this.SearchBar.input)
+            tailwindRemove(['rounded-t-lg'], this.SearchBar.input)
         }
     }
     render(){
