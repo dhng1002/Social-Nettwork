@@ -108,7 +108,6 @@ class Profile {
                                     })
                                 }
                             }else{
-                                console.log(data)
                                 if(data.some(u => u === value)){
                                     data[data.indexOf(value)] = null
                                     AddChild(this.navBar, cancelRequest.render())
@@ -127,7 +126,7 @@ class Profile {
                                     })
                                 }
                             }
-                        })
+                        }, {onlyOnce:true})
                         
                     }else{
                         onValue(ref(db, 'Request/' + value), snapshot=>{
@@ -166,7 +165,7 @@ class Profile {
                                 })
                                 })
                             }
-                        })
+                        }, {onlyOnce: true})
                         
                     }
                 })
