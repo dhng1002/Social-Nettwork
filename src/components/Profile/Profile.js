@@ -1,5 +1,6 @@
 import { async } from "@firebase/util";
 import { data } from "autoprefixer";
+
 import { onAuthStateChanged } from "firebase/auth";
 import { getDatabase, onValue, push, ref, set, update } from "firebase/database";
 import { list } from "firebase/storage";
@@ -77,42 +78,54 @@ class Profile {
                     let cancelRequest = new BaseButton('Cancel request')
                     let data = snapshot.val()
                     if(data){
-                        clearChild(this.navBar)
                         onValue(ref(db, 'Request/' + value), snapshot=>{
-                           console.log(data)
+                            console.log(1)
                             if(snapshot.val()){
-                                if(snapshot.val().some(u => u === user.uid)){
-                                    AddChild(this.navBar, acceptBtn.render())
-                                    AddChild(this.navBar, declineBtn.render())
-                                    acceptBtn.Event('click', () => {
-                                        let data = snapshot.val()
-                                        data[data.indexOf(user.uid)] = null
-                                        set(ref(db, 'Request/' + value),{
-                                            [value]: data
-                                        })
-                                    })
-                                    declineBtn.Event('click', () => {
-                                        let data = snapshot.val()
-                                        data[data.indexOf(user.uid)] = null
-                                        set(ref(db, 'Request/' + value),{
-                                            [value]: data
-                                        })
-                                    })
-                                }else{
-                                    data = data.concat(value)
-                                    AddChild(this.navBar, addFriendBtn.render())
-                                    addFriendBtn.Event('click', ()=>{
-                                        set(ref(db, 'Request/' + user.uid),{
-                                            [user.uid]: data
-                                        })
-                                    })
-                                }
-                            }else{
+                                clearChild(this.navBar)
                                 if(data.some(u => u === value)){
                                     data[data.indexOf(value)] = null
                                     AddChild(this.navBar, cancelRequest.render())
                                     cancelRequest.Event('click', () =>{
-                                        set(ref(db, 'Request/'),{
+                                        update(ref(db, 'Request/'),{
+                                            [user.uid]: data
+                                        })
+                                    })
+                                }else{
+                                    if(snapshot.val().some(u => u === user.uid)){
+                                        clearChild(this.navBar)
+                                        AddChild(this.navBar, acceptBtn.render())
+                                        AddChild(this.navBar, declineBtn.render())
+                                        acceptBtn.Event('click', () => {
+                                        let data = snapshot.val()
+                                        data[data.indexOf(user.uid)] = null
+                                        update(ref(db, 'Request/'),{
+                                            [value]: data
+                                        })
+                                        })
+                                        declineBtn.Event('click', () => {
+                                        let data = snapshot.val()
+                                        data[data.indexOf(user.uid)] = null
+                                        update(ref(db, 'Request/'),{
+                                            [value]: data
+                                        })
+                                    })
+                                    }else{
+                                    let data = snapshot.val()
+                                    data = data.concat(value)
+                                    AddChild(this.navBar, addFriendBtn.render())
+                                    addFriendBtn.Event('click', ()=>{
+                                        update(ref(db, 'Request/'),{
+                                            [user.uid]: data
+                                        })
+                                    })}
+                                }
+                            }else{
+                                clearChild(this.navBar)
+                                if(data.some(u => u === value)){
+                                    data[data.indexOf(value)] = null
+                                    AddChild(this.navBar, cancelRequest.render())
+                                    cancelRequest.Event('click', () =>{
+                                        update(ref(db, 'Request/'),{
                                             [user.uid]: data
                                         })
                                     })
@@ -120,13 +133,13 @@ class Profile {
                                     data = data.concat(value)
                                     AddChild(this.navBar, addFriendBtn.render())
                                     addFriendBtn.Event('click', ()=>{
-                                        set(ref(db, 'Request/' + user.uid),{
+                                        update(ref(db, 'Request/'),{
                                             [user.uid]: data
                                         })
                                     })
                                 }
                             }
-                        }, {onlyOnce:true})
+                        })
                         
                     }else{
                         onValue(ref(db, 'Request/' + value), snapshot=>{
@@ -138,21 +151,21 @@ class Profile {
                                     acceptBtn.Event('click', () => {
                                         let data = snapshot.val()
                                         data[data.indexOf(user.uid)] = null
-                                        set(ref(db, 'Request/' + value),{
+                                        update(ref(db, 'Request/'),{
                                             [value]: data
                                         })
                                     })
                                     declineBtn.Event('click', () => {
                                         let data = snapshot.val()
                                         data[data.indexOf(user.uid)] = null
-                                        set(ref(db, 'Request/' + value),{
+                                        update(ref(db, 'Request/'),{
                                             [value]: data
                                         })
                                     })
                                 }else{
                                     AddChild(this.navBar, addFriendBtn.render())
                                     addFriendBtn.Event('click', () =>{
-                                    set(ref(db, 'Request/'),{
+                                    update(ref(db, 'Request/'),{
                                         [user.uid]: [value]
                                     })
                                 })
@@ -160,12 +173,12 @@ class Profile {
                             }else{
                                 AddChild(this.navBar, addFriendBtn.render())
                                 addFriendBtn.Event('click', () =>{
-                                set(ref(db, 'Request/'),{
+                                update(ref(db, 'Request/'),{
                                         [user.uid]: [value]
                                 })
                                 })
                             }
-                        }, {onlyOnce: true})
+                        })
                         
                     }
                 })
