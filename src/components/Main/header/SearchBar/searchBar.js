@@ -95,10 +95,9 @@ class SearchBar {
             }
             for(let index = 0 ; index < this.listInformation.children.length; index++){
                 Event('click', this.listInformation.children[index], (e) =>{
-                    for(let index = 0; index < brigde.currentValue.box.children.length  ; index++){
+                    for(let index = 0; index < brigde.currentValue.box.children.length  ; index){
                         if(brigde.currentValue.box.children[index] !== brigde.currentValue.header && brigde.currentValue.box.children[index] !== brigde.currentValue.notfication){
                             (brigde.currentValue.box.children[index].remove())
-                            index = 0
                         }
                     }
                     AddChild(brigde.currentValue.box, new Profile().render(this.listInformation.children[index].getAttribute('data')))

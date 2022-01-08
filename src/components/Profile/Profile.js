@@ -26,10 +26,10 @@ class Profile {
         this.informationStyle = ['flex', 'flex-col', 'items-center', 'relative', 'top-full', 'left-1/2', '-translate-y-1/2', '-translate-x-1/2']
         this.userNameStyle = ['pt-2', 'font-bold', 'text-2xl', 'tracking-wide']
         this.navBarStyle = ['my-32', 'flex', 'flex-row', 'items-center', 'justify-center']
-        this.addFriendBtnStyle = ['bg-sky-400', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg']
-        this.acceptBtnStyle = ['bg-sky-400', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg', 'mx-2'] 
-        this.declineBtnStyle = ['bg-stone-500', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg', 'mx-2']
-        this.cancelRequestStyle = ['bg-sky-400', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg']
+        this.addFriendBtnStyle = ['bg-sky-400', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg', 'z-20']
+        this.acceptBtnStyle = ['bg-sky-400', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg', 'mx-2','z-20'] 
+        this.declineBtnStyle = ['bg-stone-500', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg', 'mx-2', 'z-20']
+        this.cancelRequestStyle = ['bg-sky-400', 'px-4', 'py-2', 'font-bold', 'text-white', 'rounded-lg','z-20']
         tailwindAdd(this.boxStyle, this.box)
         tailwindAdd(this.coverImageStyle, this.coverImage)
         tailwindAdd(this.avatarStyle, this.avatar)
@@ -111,18 +111,13 @@ class Profile {
                                 acceptBtn.Event('click', ()=>{
                                     update(ref(db, 'Request/'),{
                                         [value]: anotherUser
-                                    })
-                                    update(ref(db, 'Request/'),{
-                                        [value]: anotherUser
-                                    })
-                                    onValue(ref(db, 'List Friend'), sn => {      
+                                    }) 
                                         update(ref(db, 'List Friend/'+ user.uid),{
                                             [value]:false
                                         })
                                         update(ref(db, 'List Friend/'+ value),{
                                             [user.uid]:false
                                         })
-                                },{onlyOnce: true})
                                 })
                                 declineBtn.Event('click', ()=>{
                                     update(ref(db, 'Request/'),{
@@ -153,15 +148,13 @@ class Profile {
                                 acceptBtn.Event('click', ()=>{
                                     update(ref(db, 'Request/'),{
                                         [value]: anotherUser
-                                    })
-                                    onValue(ref(db, 'List Friend'), sn => {      
+                                    })     
                                         update(ref(db, 'List Friend/'+ user.uid),{
                                             [value]:false
                                         })
                                         update(ref(db, 'List Friend/'+ value),{
                                             [user.uid]:false
                                         })
-                                },{onlyOnce: true})
                                 })
                                 declineBtn.Event('click', ()=>{
                                     update(ref(db, 'Request/'),{
