@@ -1,3 +1,4 @@
+
 import { onAuthStateChanged } from "firebase/auth";
 import { getDatabase, onValue, ref } from "firebase/database";
 import { auth } from "../../../../Javascript/firebase";
@@ -14,7 +15,7 @@ class FriendRequest {
         this.boxStyle = ['w-full', 'h-52']
         this.requestCountStyle = ['flex', 'flex-row','justify-between', 'px-2', 'text-gray-400', 'items-center']
         this.titleStyle = ['text-gray-400']
-        this.numberStyle = ['rounded-full', 'bg-sky-600', 'text-white', 'w-6', 'h-6', 'text-center']
+        this.numberStyle = ['rounded-full', 'bg-indigo-700', 'text-white', 'w-6', 'h-6', 'text-center']
         tailwindAdd(this.boxStyle, this.box)
         tailwindAdd(this.requestCountStyle, this.requestCount)
         tailwindAdd(this.titleStyle, this.title)
@@ -57,3 +58,4 @@ class FriendRequest {
 }
 
 export default FriendRequest
+
