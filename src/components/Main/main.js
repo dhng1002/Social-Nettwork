@@ -1,5 +1,8 @@
+import { onAuthStateChanged } from "firebase/auth";
+import App from "../../app";
 import Brigde from "../../Javascript/Brigde";
-import { AddChild, New, tailwindAdd } from "../../Javascript/tool";
+import { auth } from "../../Javascript/firebase";
+import { AddChild, Element, New, tailwindAdd } from "../../Javascript/tool";
 import Header from "./header/header";
 import MainContent from "./mainContent/mainContent";
 import newAccountNotification from "./newAccountNotification/newAccountNotification";
@@ -24,6 +27,12 @@ class Main {
         })
     }
     render(){
+        onAuthStateChanged(auth, user =>{
+            if(!user){
+                Element('#root').innerHTML = ''
+                AddChild(Element('#root'), new App().render('SignInAndSignUp'))
+            }
+        })
         AddChild(this.box, this.newAccountNotification.render())
         AddChild(this.box, this.header.render())
         AddChild(this.box, this.sideBarLeft.render())

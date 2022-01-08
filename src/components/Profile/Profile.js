@@ -1,6 +1,5 @@
 import { async } from "@firebase/util";
 import { data } from "autoprefixer";
-
 import { onAuthStateChanged } from "firebase/auth";
 import { getDatabase, onValue, push, ref, set, update } from "firebase/database";
 import { list } from "firebase/storage";
@@ -51,14 +50,14 @@ class Profile {
                 this.avatar.style.backgroundSize = `cover`
             }else{
                 size = data.size.split(' ')
-                this.avatar.style.backgroundSize = `${size[0].replace('px','') * this.avatar.clientWidth / 208}px ${size[1].replace('px','') * this.avatar.clientWidth / 208}px`
+                this.avatar.style.backgroundSize = `${size[0].replace('px','') * 160 / 208}px ${size[1].replace('px','') * 160 / 208}px`
             }
             if(data.position === '' || data.position === 'initial'){
 
                 this.avatar.style.backgroundPosition = `100% auto`
             }else{
                 position = data.position.split(' ')
-                this.avatar.style.backgroundPosition = `${position[0].replace('px','') * this.avatar.clientWidth / 208}px ${position[1].replace('px','') * this.avatar.clientWidth / 208}px`
+                this.avatar.style.backgroundPosition = `${position[0].replace('px','') * 160 / 208}px ${position[1].replace('px','') * 160 / 208}px`
             }
             this.avatar.style.backgroundImage = `url(${data.url})`
             
@@ -69,7 +68,7 @@ class Profile {
                 element.children[index].remove()
             }
         }
-        onAuthStateChanged(this.auth, user => {
+        onAuthStateChanged(this.auth, async user => {
             if(user){
                 onValue(ref(db, 'Request/'),snapshot =>{
                     let addFriendBtn = new BaseButton('Add friend')
@@ -113,6 +112,17 @@ class Profile {
                                     update(ref(db, 'Request/'),{
                                         [value]: anotherUser
                                     })
+                                    update(ref(db, 'Request/'),{
+                                        [value]: anotherUser
+                                    })
+                                    onValue(ref(db, 'List Friend'), sn => {      
+                                        update(ref(db, 'List Friend/'+ user.uid),{
+                                            [value]:false
+                                        })
+                                        update(ref(db, 'List Friend/'+ value),{
+                                            [user.uid]:false
+                                        })
+                                },{onlyOnce: true})
                                 })
                                 declineBtn.Event('click', ()=>{
                                     update(ref(db, 'Request/'),{
@@ -144,6 +154,20 @@ class Profile {
                                     update(ref(db, 'Request/'),{
                                         [value]: anotherUser
                                     })
+                                    onValue(ref(db, 'List Friend'), sn => {      
+                                        update(ref(db, 'List Friend/'+ user.uid),{
+                                            [value]:false
+                                        })
+                                        update(ref(db, 'List Friend/'+ value),{
+                                            [user.uid]:false
+                                        })
+                                },{onlyOnce: true})
+                                })
+                                declineBtn.Event('click', ()=>{
+                                    update(ref(db, 'Request/'),{
+                                        [value]: anotherUser
+                                    })
+                                    
                                 })
                             }else if(currentUser.some(u => u === value) === true && anotherUser.some(u => u === value) === false){
                                 AddChild(this.navBar, cancelRequest.render())
@@ -174,21 +198,29 @@ class Profile {
                             })
                         }
                     }
+                    onValue(ref(db, 'List Friend/' + user.uid),snapshot =>{
+                        if(snapshot.val()){
+                            if(Object.keys(snapshot.val()).some(u => u===value)){
+                                clearChild(this.navBar)
+                            }
+                        }
+                    })
                     if(value === user.uid){
                         clearChild(this.navBar)
                         Event('click', this.avatar, ()=>{
                             set(ref(db, 'New User/' + user.uid),{haveSignIn: false})
                         })
                     }
+                    AddChild(this.box, this.coverImage)
+                    AddChild(this.box, this.navBar)
+                    AddChild(this.coverImage, this.information)
+                    AddChild(this.information, this.avatar)
+                    AddChild(this.information, this.userName)
                 })
-                
             }
         })
-        AddChild(this.box, this.coverImage)
-        AddChild(this.box, this.navBar)
-        AddChild(this.coverImage, this.information)
-        AddChild(this.information, this.avatar)
-        AddChild(this.information, this.userName)
+        
+        
         return this.box
     }
 }
